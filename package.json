@@ -15,7 +15,6 @@
     "next": "^9.4.4",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
-    "react-dark-mode-toggle": "0.0.5",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "sass": "^1.26.7",

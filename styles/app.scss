@@ -31,6 +31,13 @@
     }
 }
 
+@mixin line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
 body {
     font-size: 16px;
     font-family: $Inter;
@@ -105,7 +112,7 @@ i {
         }
 
         &.active {
-            color: $primary;;
+            color: $primary;
         }
     }
 }
@@ -116,6 +123,7 @@ i {
 }
 
 .home {
+    
     img {
         display: block;
         margin: 3rem auto 0 auto;
@@ -148,14 +156,8 @@ i {
     }
 }
 
-@mixin line-clamp {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
-    overflow: hidden;
-}
-
 .post {
+
     a {
         text-decoration: none;
         transition-duration: .2s;
@@ -163,6 +165,7 @@ i {
         margin-top: 0;
         font-family: $Comfortaa;
         font-size: 1.5rem;
+        
         &:hover {
             text-decoration: underline;
         }
@@ -194,6 +197,7 @@ i {
     img {
         height: 100%;
         width: 100%;
+        
         @include sm {
             margin-top: 2rem;
         }
