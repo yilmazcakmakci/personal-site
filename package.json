@@ -1,0 +1,25 @@
+{
+  "name": "personel-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.4.4",
+    "normalize.css": "^8.0.1",
+    "react": "^16.13.1",
+    "react-dark-mode-toggle": "0.0.5",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "sass": "^1.26.7",
+    "slug": "^3.3.0"
+  },
+  "devDependencies": {}
+}
