@@ -2,8 +2,10 @@ import React from 'react'
 import Layout from '../../components/layout';
 import slug from 'slug'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { useRouter } from 'next/router'
 
 const Project = ({project}) => {
+    const router = useRouter()
     const { project_name, description, date, media, project_link, github_link, tags, used_techs } = project.fields
     const size = 16
     const links = [
@@ -18,43 +20,48 @@ const Project = ({project}) => {
             icon : <FaExternalLinkAlt size={size} />
         }
     ]
-
-    return (
-        <Layout title={project_name} description={description}>
-            <div className='project-details'>
-                <div className='project-header'>
-                    <h3> {project_name} </h3>
-                    <div className='tag-container'>
+    
+    if (router.isFallback) {
+        return <div>Yükleniyor...</div>
+    }
+    else {
+        return (
+            <Layout title={project_name} description={description}>
+                <div className='project-details'>
+                    <div className='project-header'>
+                        <h3> {project_name} </h3>
+                        <div className='tag-container'>
+                            {
+                                tags.map( (tag, i) => <span key={i} className='tag'> {tag} </span>)
+                            }
+                        </div>
+                    </div>
+                    <i> {date} </i>
+                    <p> {description} </p>
+                    <p>
+                        <b>Kullanılan Teknolojiler : </b>
+                        {used_techs.join(', ')}
+                    </p>
+                    <div style={{margin:'2rem 0'}}>
                         {
-                            tags.map( (tag, i) => <span key={i} className='tag'> {tag} </span>)
+                            links.map( (link, i) => (
+                                <a key={i} href={link.url} className='project-link' target='_blank'>
+                                    <span> {link.label} </span>
+                                    {link.icon}
+                                </a>
+                            ))
                         }
                     </div>
-                </div>
-                <i> {date} </i>
-                <p> {description} </p>
-                <p>
-                    <b>Kullanılan Teknolojiler : </b>
-                    {used_techs.join(', ')}
-                </p>
-                <div style={{margin:'2rem 0'}}>
+    
                     {
-                        links.map( (link, i) => (
-                            <a key={i} href={link.url} className='project-link' target='_blank'>
-                                <span> {link.label} </span>
-                                {link.icon}
-                            </a>
-                        ))
+                        media ? media.map( (img, i) => (
+                            <img key={i} src={img.url} alt={project_name} style={{marginBottom:'2rem'}} />
+                        )) : null
                     }
                 </div>
-
-                {
-                    media ? media.map( (img, i) => (
-                        <img key={i} src={img.url} alt={project_name} style={{marginBottom:'2rem'}} />
-                    )) : null
-                }
-            </div>
-        </Layout>
-    )
+            </Layout>
+        )    
+    }
 }
 
 export async function getStaticPaths() {
