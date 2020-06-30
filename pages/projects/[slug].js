@@ -6,6 +6,12 @@ import { useRouter } from 'next/router'
 
 const Project = ({project}) => {
     const router = useRouter()
+    
+    if (router.isFallback) {
+        return <div>Yükleniyor...</div>
+    }
+    
+    const { project_name, description, date, media, project_link, github_link, tags, used_techs } = project.fields
     const size = 16
     const links = [
         {
@@ -19,12 +25,6 @@ const Project = ({project}) => {
             icon : <FaExternalLinkAlt size={size} />
         }
     ]
-    
-    if (router.isFallback) {
-        return <div>Yükleniyor...</div>
-    }
-    
-    const { project_name, description, date, media, project_link, github_link, tags, used_techs } = project.fields
     return (
         <Layout title={project_name} description={description}>
             <div className='project-details'>
