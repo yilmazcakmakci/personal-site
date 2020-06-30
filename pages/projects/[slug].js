@@ -18,8 +18,9 @@ const Project = ({project}) => {
             icon : <FaExternalLinkAlt size={size} />
         }
     ]
+
     return (
-        <Layout>
+        <Layout title={project_name} description={description}>
             <div className='project-details'>
                 <div className='project-header'>
                     <h3> {project_name} </h3>
@@ -65,7 +66,7 @@ export async function getStaticPaths() {
       params: { slug: `${slug(project.fields.project_name)}-${project.fields.id}` },
     }))
   
-    return { paths, fallback: false }
+    return { paths, fallback: true }
 }
   
 export async function getStaticProps({ params }) {

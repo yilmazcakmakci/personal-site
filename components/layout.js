@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
-const Layout = ({children}) => {
+const Layout = ({children, title, description}) => {
     
     const { pathname } = useRouter()
     
@@ -17,7 +18,14 @@ const Layout = ({children}) => {
         },
     ]
 
+    const defaultDesc = 'Yazılarımı, projelerimi ve kişisel deneyimlerimi paylaştığım web sitesi.'
     return (
+        <>
+        <Head>
+            <title>{title ? `${title} · Yılmaz Çakmakçı` : 'Yılmaz Çakmakçı'}</title>
+            <meta name='description' content={description || defaultDesc} />
+            <link rel="shortcut icon" href="../static/favicon.ico"/>
+        </Head>
         <div className='container'>
             <div className='name'>
                 <Link href='/'>
@@ -41,6 +49,7 @@ const Layout = ({children}) => {
                 {children}
             </div>
         </div>
+        </>
     )
 }
 

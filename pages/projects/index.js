@@ -3,8 +3,9 @@ import Layout from '../../components/layout'
 import Post from '../../components/post'
 
 const Projects = ({projects}) => {
+    const description = 'Kişisel olarak geliştirdiğim veya içerisinde bulunduğum projeler.'
     return (
-        <Layout>
+        <Layout title='Projelerim' description={description}>
             {
                 projects.records.map( (project, i) => (
                     <React.Fragment key={i}>
