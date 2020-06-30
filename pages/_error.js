@@ -1,12 +1,9 @@
 import React from 'react'
-import Layout from '../components/layout'
+import CustomError from '../components/error'
 
 const Error = () => {
     return (
-        <Layout>
-            <h4 style={{color:'#10ac84'}}>OOPS!</h4>
-            <p>Böyle bir sayfa yok.</p>
-        </Layout>
+        <CustomError message='Bu işte bir terslik var.' />
     )
 }
 

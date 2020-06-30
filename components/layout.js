@@ -24,7 +24,7 @@ const Layout = ({children, title, description}) => {
         <Head>
             <title>{title ? `${title} · Yılmaz Çakmakçı` : 'Yılmaz Çakmakçı'}</title>
             <meta name='description' content={description || defaultDesc} />
-            <link rel="shortcut icon" href="../static/favicon.ico"/>
+            <link rel="shortcut icon" href="/static/favicon.ico"/>
         </Head>
         <div className='container'>
             <div className='name'>

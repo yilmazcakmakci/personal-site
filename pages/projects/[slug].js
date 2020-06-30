@@ -24,44 +24,43 @@ const Project = ({project}) => {
     if (router.isFallback) {
         return <div>Yükleniyor...</div>
     }
-    else {
-        return (
-            <Layout title={project_name} description={description}>
-                <div className='project-details'>
-                    <div className='project-header'>
-                        <h3> {project_name} </h3>
-                        <div className='tag-container'>
-                            {
-                                tags.map( (tag, i) => <span key={i} className='tag'> {tag} </span>)
-                            }
-                        </div>
-                    </div>
-                    <i> {date} </i>
-                    <p> {description} </p>
-                    <p>
-                        <b>Kullanılan Teknolojiler : </b>
-                        {used_techs.join(', ')}
-                    </p>
-                    <div style={{margin:'2rem 0'}}>
+    
+    return (
+        <Layout title={project_name} description={description}>
+            <div className='project-details'>
+                <div className='project-header'>
+                    <h3> {project_name} </h3>
+                    <div className='tag-container'>
                         {
-                            links.map( (link, i) => (
-                                <a key={i} href={link.url} className='project-link' target='_blank'>
-                                    <span> {link.label} </span>
-                                    {link.icon}
-                                </a>
-                            ))
+                            tags.map( (tag, i) => <span key={i} className='tag'> {tag} </span>)
                         }
                     </div>
-    
+                </div>
+                <i> {date} </i>
+                <p> {description} </p>
+                <p>
+                    <b>Kullanılan Teknolojiler : </b>
+                    {used_techs.join(', ')}
+                </p>
+                <div style={{margin:'2rem 0'}}>
                     {
-                        media ? media.map( (img, i) => (
-                            <img key={i} src={img.url} alt={project_name} style={{marginBottom:'2rem'}} />
-                        )) : null
+                        links.map( (link, i) => (
+                            <a key={i} href={link.url} className='project-link' target='_blank'>
+                                <span> {link.label} </span>
+                                {link.icon}
+                            </a>
+                        ))
                     }
                 </div>
-            </Layout>
-        )    
-    }
+
+                {
+                    media ? media.map( (img, i) => (
+                        <img key={i} src={img.url} alt={project_name} style={{marginBottom:'2rem'}} />
+                    )) : null
+                }
+            </div>
+        </Layout>
+    )
 }
 
 export async function getStaticPaths() {
