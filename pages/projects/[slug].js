@@ -8,7 +8,7 @@ const Project = ({project}) => {
     const router = useRouter()
     
     if (router.isFallback) {
-        return <div>Yükleniyor...</div>
+        return <Layout>Yükleniyor...</Layout>
     }
     
     const { project_name, description, date, media, project_link, github_link, tags, used_techs } = project.fields

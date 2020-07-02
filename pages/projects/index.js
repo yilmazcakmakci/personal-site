@@ -23,7 +23,7 @@ const Projects = ({projects}) => {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch(`https://api.airtable.com/v0/${process.env.NEXT_PUBLIC_BASE}/Projects?api_key=${process.env.NEXT_PUBLIC_API_KEY}&sort%5B0%5D%5Bfield%5D=id&sort%5B0%5D%5Bdirection%5D=asc`)
     const projects = await res.json()
     
