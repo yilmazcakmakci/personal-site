@@ -2,14 +2,8 @@ import React from 'react'
 import Layout from '../../components/layout';
 import slug from 'slug'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
-import { useRouter } from 'next/router'
 
 const Project = ({project}) => {
-    const router = useRouter()
-    
-    if (router.isFallback) {
-        return <Layout>Yükleniyor...</Layout>
-    }
     
     const { project_name, description, date, media, project_link, github_link, tags, used_techs } = project.fields
     const size = 16
@@ -72,7 +66,7 @@ export async function getStaticPaths() {
       params: { slug: `${slug(project.fields.project_name)}-${project.fields.id}` },
     }))
   
-    return { paths, fallback: true }
+    return { paths, fallback: false }
 }
   
 export async function getStaticProps({ params }) {
