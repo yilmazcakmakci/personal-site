@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Cookie&family=Inter&family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Cookie&family=Inter:wght@400;500;900&family=JetBrains+Mono&display=swap');
 
 // Fonts
 $Comfortaa: 'Comfortaa', cursive;
 $Cookie: 'Cookie', cursive;
 $Inter: 'Inter', sans-serif;
+$JBM: 'JetBrains Mono', monospace;
 
 // Colors
-$selection: #0e1111;
-$bg-color: #0D0F16   ;
+$bg-color: #0D0F16;
 $text-color: #C4C4C4;
 $primary: #10ac84;
+$grey: #777777;
 
-// Device Size
-$screen-sm: 576px
+// Sizes
+$screen-sm: 576px;
+
+$container: 700px

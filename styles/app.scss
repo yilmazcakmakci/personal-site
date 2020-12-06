@@ -1,23 +1,25 @@
 @import 'constants.scss';
+@import 'article.scss';
 
 /* for Firefox */
 ::-moz-selection { 
     color:  white;
-    background: $selection;
+    background: $primary;
 }
 
 ::selection {
     color:  white;
-    background: $selection;
+    background: $primary;
 }
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 3px;
 }
  
 ::-webkit-scrollbar-track {
     border-radius: 10px;
-    background-color: $selection;;
+    background-color: $grey;
 }
  
 ::-webkit-scrollbar-thumb {
@@ -57,6 +59,10 @@ a {
     }
 }
 
+p {
+    line-height: 150%;
+}
+
 img {
     max-width: 100%;
 }
@@ -72,7 +78,7 @@ i {
 }
 
 .container {
-    max-width: 650px;
+    max-width: $container;
     margin: 0 auto;
     min-height: 100vh;
     padding: 0 1rem;
@@ -100,7 +106,7 @@ i {
     align-items: center;
 
     a {
-        font-weight: 600;
+        font-weight: 500;
         text-decoration: none;
         
         &:hover {
@@ -149,7 +155,7 @@ i {
     grid-template-columns: repeat(5, 1fr);
     justify-items: center;
     width: 50%;
-    margin: 3rem auto;
+    margin: 5rem auto;
 
     @include sm {
         width: 75%;
@@ -218,8 +224,8 @@ i {
             display: block;
         }
 
-        h3 {
-            margin: 0;
+        h1 {
+            // margin: 0;
             color: $primary;
         }
 

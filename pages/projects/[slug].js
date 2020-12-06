@@ -23,7 +23,7 @@ const Project = ({project}) => {
         <Layout title={project_name} description={description}>
             <div className='project-details'>
                 <div className='project-header'>
-                    <h3> {project_name} </h3>
+                    <h1> {project_name} </h1>
                     <div className='tag-container'>
                         {
                             tags.map( (tag, i) => <span key={i} className='tag'> {tag} </span>)
